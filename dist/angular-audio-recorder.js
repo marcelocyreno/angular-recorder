@@ -18,8 +18,8 @@ angular.module('angularAudioRecorder.config', [])
   .constant('recorderScriptUrl', (function () {
     // var scripts = document.getElementsByTagName('script');
     // var myUrl = scripts[scripts.length - 1].getAttribute('src');
-    // var path = myUrl.substr(0, myUrl.lastIndexOf('/') + 1);
-    var path = getPackageBasePath().substr(0, myUrl.lastIndexOf('/') + 1);
+    var myUrl = getPackageBasePath();
+    var path = myUrl.substr(0, myUrl.lastIndexOf('/') + 1);
     var a = document.createElement('a');
     a.href = path;
     return a.href;
@@ -1094,7 +1094,7 @@ angular.module('angularAudioRecorder.services')
     }
   ]);})();
 function getPackageBasePath() {
-    return './jspm_packages/github/pbininda/angular-recorder@2.0.10/dist';
+    return './jspm_packages/github/marcelocyreno/angular-recorder@2.0.11/dist';
 }
 
 (function (global) {
@@ -1715,8 +1715,9 @@ function getPackageBasePath() {
   };
 
   var SCRIPT_BASE = (function () {
-    var scripts = document.getElementsByTagName('script');
-    var myUrl = scripts[scripts.length - 1].getAttribute('src');
+    // var scripts = document.getElementsByTagName('script');
+    // var myUrl = scripts[scripts.length - 1].getAttribute('src');
+    var myUrl = getPackageBasePath();
     var path = myUrl.substr(0, myUrl.lastIndexOf('/') + 1);
     if (path && !path.match(/:\/\//)) {
       var a = document.createElement('a');
